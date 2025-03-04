@@ -1,0 +1,13 @@
+Promotions 1 run on 12/24/2024
+Host myserver
+  HostName example.com
+  User username
+  IdentityFile ~/.ssh/id_ed25519
+  Port 22
+
+Promotions 2 run on 11/28/2025
+Host github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  Port 22
