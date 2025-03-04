@@ -1,0 +1,30 @@
+#!/bin/bash
+Return goods
+Return checks
+# Define variables
+ORDER_ID=$1
+RETURN_REASON=$2
+RETURN_DATE=$3
+
+# Update order status to "Returned"
+echo "Updating order status to Returned..."
+mysql -u username -p password -e "UPDATE orders SET status='Returned' WHERE id='$ORDER_ID'"
+
+# Insert return details into returns table
+echo "Inserting return details..."
+mysql -u username -p password -e "INSERT INTO returns (order_id, reason, date) VALUES ('$ORDER_ID', '$RETURN_REASON', '$RETURN_DATE')"
+
+# Send confirmation email to customer
+echo "Sending confirmation email to customer..."
+mail -s "Return Confirmation" customer@example.com << EOF
+Dear Customer,
+
+Your return for order #$ORDER_ID has been processed. The reason for the return was: $RETURN_REASON.
+
+Thank you for your business.
+
+Best regards,
+Your Company
+EOF
+
+echo "Return processed successfully!"
