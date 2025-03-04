@@ -1,4 +1,4 @@
-Promotions 1 run on 12/24/2025 Host myserver
+Promotions 1 run on 12/24/2 Host myserver
   HostName example.com
   User username
   IdentityFile ~/.ssh/id_ed25519
